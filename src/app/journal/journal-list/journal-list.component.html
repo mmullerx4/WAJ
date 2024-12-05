@@ -1,1 +1,17 @@
-<p>journal-list works!</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <span class="pull-left title">Journals</span>
+      <a [routerLink]="['new']" class="btn btn-success pull-right">Add Journal</a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="center-panel">
+      <app-journal-item
+        *ngFor="let journal of journals"
+        [journal]="journal"
+      ></app-journal-item>
+    </div>
+  </div>
+</div>
+

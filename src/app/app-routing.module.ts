@@ -10,7 +10,9 @@ const routes: Routes = [
   { path: 'journals', component: JournalListComponent },
   { path: 'journals/:id', component: JournalDetailComponent },
   { path: 'journals/:id/edit', component: JournalEditComponent },
-  { path: 'journals/:id/item', component: JournalItemComponent } // Added route for JournalItem
+  { path: 'journals/:id/item', component: JournalItemComponent }, 
+  { path: '**', redirectTo: '/journals', pathMatch: 'full' }
+
 ];
 
 @NgModule({

@@ -1,1 +1,5 @@
-<p>journal-item works!</p>
+<div class="journal-card" (click)="onSelectEntry()">
+  <h3>{{ journal.title }}</h3>
+  <p>{{ journal.date | date }}</p>
+</div>
+
