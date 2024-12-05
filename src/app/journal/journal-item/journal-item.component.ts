@@ -10,7 +10,7 @@ export class JournalItemComponent {
   @Output() selectEntry = new EventEmitter<string>(); // Emit selected entry ID
 
   onSelectEntry() {
-    this.selectEntry.emit(this.journal.id);
+    this.selectEntry.emit(this.journal.id); // Emit journal id when clicked
   }
 }
 

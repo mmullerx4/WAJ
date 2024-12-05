@@ -2,16 +2,21 @@
   <div class="panel-heading">
     <div class="row pad-left-right">
       <span class="pull-left title">Journals</span>
-      <a [routerLink]="['new']" class="btn btn-success pull-right">Add Journal</a>
+      <a [routerLink]="'/journals/new'" class="btn btn-success pull-right">Add Journal</a>
     </div>
   </div>
   <div class="panel-body">
     <div class="center-panel">
-      <app-journal-item
-        *ngFor="let journal of journals"
-        [journal]="journal"
-      ></app-journal-item>
+      <div *ngFor="let journal of journals">
+        <div class="journal-item" style="border: 1px solid red; padding: 10px;">
+          <h3><a [routerLink]="['/journals', journal.id]">{{ journal.title }}</a></h3>
+          <p>{{ journal.date | date:'shortDate' }}</p>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
+
+
 

@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Journal } from '../../journal.model';
 
 @Component({
   selector: 'app-journal-list',
   templateUrl: './journal-list.component.html',
   styleUrls: ['./journal-list.component.css']
 })
-export class JournalListComponent {
-  // Example data for journals, replace this with real data or service
-  journals = [
-    { id: '1', title: 'My First Journal', date: '2024-01-01' },
-    { id: '2', title: 'A Day in Paris', date: '2024-01-02' },
-    { id: '3', title: 'Vacation Reflections', date: '2024-01-03' },
-  ];
+export class JournalListComponent implements OnInit {
+  journals: Journal[] = [];
 
-  constructor(private router: Router) {}
+  constructor() {}
 
-  // Navigate to the "new" journal entry form
-  onAddJournal() {
-    this.router.navigate(['/journals/new']);
+  ngOnInit(): void {
+
+    this.journals = [
+      { id: 1, title: 'My first journal', date: '2024-01-01', content: 'This is the first entry.' },
+      { id: 2, title: 'A day at the beach', date: '2024-01-02', content: 'Went to the beach today!' },
+      
+    ];
   }
 }
+
 
