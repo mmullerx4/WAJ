@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { JournalListComponent } from './journal-list.component';
-import { JournalEditComponent } from './journal-edit.component';
-import { JournalItemComponent } from './journal-item.component';
-import { JournalDetailComponent } from './journal-detail/journal-detail.component';
+import { JournalListComponent } from './journal/journal-list/journal-list.component';
+import { JournalEditComponent } from './journal/journal-edit/journal-edit.component';
+import { JournalItemComponent } from './journal/journal-item/journal-item.component';
+import { JournalDetailComponent } from './journal/journal-detail/journal-detail.component';
 
 @NgModule({
   declarations: [
