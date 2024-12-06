@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { JournalService } from '../../journal.service';
-import { Journal } from '../../journal.model';
+import { JournalService } from '../journal.service';
+import { Journal } from '../journal.model';
 
 @Component({
   selector: 'app-journal-detail',
@@ -34,14 +34,14 @@ export class JournalDetailComponent {
 
 
   onEdit() {
-    // Implement navigation or logic to edit the journal
-    console.log('Edit journal:', this.journal.id);
+    // Redirect to the edit route for this journal
+    this.router.navigate(['/journals', this.journal?.id, 'edit']);
   }
 
-  onDelete(): void {
-    if (this.journal && confirm('Are you sure you want to delete this journal?')) {
-      this.journalService.deleteJournal(this.journal.id);  // Use the number ID
-      this.router.navigate(['/journals']); // Navigate back to the list
+  onDelete() {
+    if (confirm('Are you sure you want to delete this journal?')) {
+      this.journalService.deleteJournal(this.journal?.id); // Implement delete in the service
+      this.router.navigate(['/journals']); // Redirect to the list
     }
   }
 }

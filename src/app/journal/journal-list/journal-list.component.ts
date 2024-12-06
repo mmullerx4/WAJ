@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Journal } from '../../journal.model';
-import { JournalService } from '../../journal.service';
+import { Journal } from '../journal.model';
+import { JournalService } from '../journal.service';
 
 @Component({
   selector: 'app-journal-list',
