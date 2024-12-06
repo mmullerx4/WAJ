@@ -1,1 +1,21 @@
-<p>journal-detail works!</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="media-left">
+      <h2 class="panel-title">{{ journal?.title }}</h2>
+      <p class="date">{{ journal?.date | date: 'longDate' }}</p>  <!-- Formatting date -->
+    </div>
+    <div class="button-container">
+      <button class="btn btn-info" (click)="onEdit()">Edit</button>
+      <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <div class="media">
+      <div class="media-body">
+        <p>{{ journal?.content }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

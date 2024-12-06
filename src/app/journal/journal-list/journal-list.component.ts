@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Journal } from '../../journal.model';
+import { JournalService } from '../../journal.service';
 
 @Component({
   selector: 'app-journal-list',
@@ -9,16 +11,19 @@ import { Journal } from '../../journal.model';
 export class JournalListComponent implements OnInit {
   journals: Journal[] = [];
 
-  constructor() {}
+  constructor(
+    private journalService: JournalService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    this.journals = this.journalService.getJournals(); // Fetch journals as strings
+  }
 
-    this.journals = [
-      { id: 1, title: 'My first journal', date: '2024-01-01', content: 'This is the first entry.' },
-      { id: 2, title: 'A day at the beach', date: '2024-01-02', content: 'Went to the beach today!' },
-      
-    ];
+  onViewDetail(journalId: number): void {
+    this.router.navigate(['/journals', journalId]); // Navigate to the detail view
   }
 }
+
 
 
