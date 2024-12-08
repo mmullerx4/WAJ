@@ -1,11 +1,18 @@
-header {
+
+.navbar {
   background-color: #333;
   color: white;
   padding: 10px;
+  text-align: right;
 }
+
 nav ul {
   list-style-type: none;
   padding: 0;
+  margin-right: 5em;
+}
+nav .navbar-brand {
+  margin-left: 5em;
 }
 nav li {
   display: inline;

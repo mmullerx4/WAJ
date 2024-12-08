@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { JournalService } from '../journal.service';
+import { QuoteService } from '../quote.service';
 import { Journal } from '../journal.model';
 
 @Component({
@@ -8,18 +10,21 @@ import { Journal } from '../journal.model';
   templateUrl: './journal-detail.component.html',
   styleUrls: ['./journal-detail.component.css']
 })
-export class JournalDetailComponent {
+export class JournalDetailComponent implements OnInit {
   journal!: Journal;
+  randomQuote: string = '';
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private journalService: JournalService
+    private journalService: JournalService,
+    private quoteService: QuoteService
   ) {}
 
   ngOnInit() {
     const journalId = +this.route.snapshot.params['id'];  // Convert to number
     this.fetchJournal(Number(journalId));
+    this.randomQuote = this.quoteService.getRandomQuote();
   }
 
   fetchJournal(id: number) {

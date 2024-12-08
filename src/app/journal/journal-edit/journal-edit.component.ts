@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { QuoteService } from '../quote.service';
 import { JournalService } from '../journal.service';
 import { Journal } from '../journal.model';
 import { FormsModule } from '@angular/forms';
@@ -12,15 +14,18 @@ import { FormsModule } from '@angular/forms';
 })
 export class JournalEditComponent implements OnInit {
   journal: Journal | undefined; // Ensure the journal is optional to handle invalid cases
+  randomQuote: string = '';
   isEditMode: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private journalService: JournalService,
-    public router: Router
+    public router: Router,
+    private quoteService: QuoteService
   ) {}
 
   ngOnInit() {
+    this.randomQuote = this.quoteService.getRandomQuote();
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.isEditMode = true;

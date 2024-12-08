@@ -1,25 +1,10 @@
 .journal-item {
-  margin-bottom: 1em;
-}
-
-.journal-card {
-  border: 1px solid #ddd;
-  padding: 1em;
-  margin: 0.5em 0;
+  margin-bottom: 15px;
   cursor: pointer;
-  transition: box-shadow 0.3s;
-  border-radius: 4px;
+  transition: transform 0.2s;
 }
 
-.journal-card:hover {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.journal-card h3 {
-  margin: 0;
-  font-size: 18px;
-}
-
-.journal-card p {
-  color: #666;
+.journal-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

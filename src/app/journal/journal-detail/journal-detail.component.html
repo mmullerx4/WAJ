@@ -1,21 +1,44 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <div class="media-left">
-      <h2 class="panel-title">{{ journal?.title }}</h2>
-      <p class="date">{{ journal?.date | date: 'longDate' }}</p>  <!-- Formatting date -->
-    </div>
-    <div class="button-container">
-      <button class="btn btn-info" (click)="onEdit()">Edit</button>
-      <button class="btn btn-danger" (click)="onDelete()">Delete</button>
-    </div>
-  </div>
+<div class="container">
+  <div class="row">
 
-  <div class="panel-body">
-    <div class="media">
-      <div class="media-body">
-        <p>{{ journal?.content }}</p>
+    <!-- Random Quote Section -->
+    <div class="col-md-6 col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Quote of the Day</h3>
+        </div>
+        <div class="panel-body">
+          <p>{{ randomQuote }}</p>
+        </div>
       </div>
     </div>
+
+    <!-- Journal Detail Section -->
+    <div class="col-md-6 col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="media-left">
+            <h2 class="panel-title">{{ journal?.title }}</h2>
+            <p class="date">{{ journal?.date | date: 'longDate' }}</p>  <!-- Formatting date -->
+          </div>
+          <div class="button-container">
+            <button class="btn btn-info" (click)="onEdit()">Edit</button>
+            <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <div class="media">
+            <div class="media-body">
+              <p>{{ journal?.content }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </div>
+
 

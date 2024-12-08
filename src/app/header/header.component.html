@@ -1,8 +1,14 @@
-<header>
-  <nav>
-    <ul>
-      <li><a [routerLink]="['/']">Home</a></li>
-      <li><a [routerLink]="['/journals']">Journals</a></li>
-    </ul>
+
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">World Appreciation Journal</a>
+    </div>
+    <div>
+      <ul>
+        <li routerLinkActive="active"><a [routerLink]="['/']">Journals</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/journals']">Quotes</a></li>
+      </ul>
+    </div>
+
   </nav>
-</header>
+

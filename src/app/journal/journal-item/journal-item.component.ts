@@ -1,16 +1,19 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { Journal } from '../journal.model';
 
 @Component({
   selector: 'app-journal-item',
   templateUrl: './journal-item.component.html',
-  styleUrls: ['./journal-item.component.css']
+  styleUrls: ['./journal-item.component.css'],
 })
 export class JournalItemComponent {
-  @Input() journal: { id: string; title: string; date: string }; // Journal entry input
-  @Output() selectEntry = new EventEmitter<string>(); // Emit selected entry ID
+  @Input() journal!: Journal; // Input to accept a journal object from the parent
+  @Output() viewDetail = new EventEmitter<number>(); // Event emitter for detail view navigation
 
-  onSelectEntry() {
-    this.selectEntry.emit(this.journal.id); // Emit journal id when clicked
+  constructor(private router: Router) {}
+
+  onNavigateToDetail(): void {
+    this.viewDetail.emit(this.journal.id); // Emit the journal id for the parent to handle
   }
 }
-

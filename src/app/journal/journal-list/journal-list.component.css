@@ -1,0 +1,16 @@
+/* Add to journal-list.component.css */
+.journal-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.quote-container {
+  width: 45%; /* Adjust the width */
+  padding: 10px;
+}
+
+.journal-list-container {
+  width: 45%; /* Adjust the width */
+  padding: 10px;
+}
+
