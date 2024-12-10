@@ -7,8 +7,8 @@ import { JournalEditComponent } from './journal/journal-edit/journal-edit.compon
 const routes: Routes = [
   { path: '', redirectTo: '/journals', pathMatch: 'full' },  // Default route
   { path: 'journals', component: JournalListComponent },
-  { path: 'journals/:id', component: JournalDetailComponent },
   { path: 'journals/new', component: JournalEditComponent },
+  { path: 'journals/:id', component: JournalDetailComponent },
   { path: 'journals/:id/edit', component: JournalEditComponent }
 ];
 

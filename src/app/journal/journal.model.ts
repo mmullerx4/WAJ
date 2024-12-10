@@ -1,8 +1,7 @@
-export class Journal {
-  constructor(
-    public id: number,
-    public title: string,
-    public content: string,
-    public date: Date
-  ) {}
+export interface Journal {
+  id?: number;  // Make `id` optional
+  title: string;
+  content: string;
+  date: Date;
 }
+

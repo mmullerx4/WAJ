@@ -27,27 +27,52 @@ export class JournalEditComponent implements OnInit {
   ngOnInit() {
     this.randomQuote = this.quoteService.getRandomQuote();
     const id = this.route.snapshot.paramMap.get('id');
+
     if (id) {
       this.isEditMode = true;
-      this.journal = this.journalService.getJournal(+id); // Convert id to number
+      const journalId = +id; // Convert the ID to a number
+      this.journal = this.journalService.getJournal(journalId);
+
       if (!this.journal) {
-        // If no journal is found, redirect to the list
+        // If the journal isn't found, show an error and do not proceed
         alert('Journal not found!');
-        this.router.navigate(['/journals']);
+        this.router.navigate(['/journals']); // Redirect to the journal list
       }
+    } else {
+      // Only set to create mode if no ID is provided at all
+      this.isEditMode = false;
+      this.journal = { title: '', content: '', date: new Date() } as Journal;
     }
   }
 
-  onSave(updatedTitle: string, updatedContent: string) {
+
+  onSave(journal: Journal): void {
     if (this.isEditMode && this.journal) {
+      // Update existing journal
       const updatedJournal: Journal = {
-        ...this.journal, // Keep existing properties like `id` and `date`
-        title: updatedTitle,
-        content: updatedContent,
+        ...this.journal, // Retain properties like `id` and `date`
+        title: this.journal.title,
+        content: this.journal.content,
       };
 
       this.journalService.updateJournal(this.journal.id, updatedJournal);
+      alert('Journal updated successfully!');
       this.router.navigate(['/journals', this.journal.id]); // Redirect back to detail view
+    } else {
+      // Create a new journal
+      const newJournal: Journal = {
+        id: Date.now(), // Use a unique ID generator (e.g., timestamp)
+        title: this.journal.title,
+        content: this.journal.content,
+        date: new Date(), // Default to the current date
+      };
+
+      this.journalService.addJournal(newJournal);
+      alert('New journal created successfully!');
+      this.router.navigate(['/journals']); // Redirect to the journal list
     }
-  }
+}
+
+
+
 }
