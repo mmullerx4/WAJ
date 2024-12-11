@@ -2,14 +2,13 @@
   "name": "waj",
   "version": "0.0.0",
   "scripts": {
-  "start": "ng serve",
-  "build": "ng build",
-  "watch": "ng build --watch --configuration development",
-  "test": "ng test",
-  "backend": "node backend/server.js",
-  "dev-backend": "nodemon backend/server.js"
-}
-,
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "backend": "node backend/server.js",
+    "dev-backend": "nodemon backend/server.js"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.0",

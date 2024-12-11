@@ -32,7 +32,8 @@ export class JournalService {
   updateJournal(id: number, updatedJournal: Journal): void {
     const index = this.journals.findIndex((journal) => journal.id === id);
     if (index !== -1) {
-      this.journals[index] = updatedJournal;
+      this.journals[index] = { ...this.journals[index], ...updatedJournal };
+
     }
   }
 
