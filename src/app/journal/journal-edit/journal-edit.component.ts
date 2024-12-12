@@ -24,26 +24,24 @@ export class JournalEditComponent implements OnInit {
     private quoteService: QuoteService
   ) {}
 
+  // note: snapshot provides a static view of the route's info at a specific time when only need to read the route data once.
   ngOnInit() {
-    this.randomQuote = this.quoteService.getRandomQuote();
+    this.quoteService.getRandomQuote().subscribe((quote: string) => {
+      this.randomQuote = quote;
+    });
     const id = this.route.snapshot.paramMap.get('id');
-
     if (id) {
       this.isEditMode = true;
       const journalId = +id; // Convert the ID to a number
-      this.journal = this.journalService.getJournal(journalId);
-
-      if (!this.journal) {
-        // If the journal isn't found, show an error and do not proceed
-        alert('Journal not found!');
-        this.router.navigate(['/journals']); // Redirect to the journal list
-      }
+      this.journalService.getJournal(journalId).subscribe((journal: Journal) => {
+        this.journal = journal;
+      });
     } else {
-      // Only set to create mode if no ID is provided at all
       this.isEditMode = false;
       this.journal = { title: '', content: '', date: new Date() } as Journal;
     }
   }
+
 
 
   onSave(journal: Journal): void {

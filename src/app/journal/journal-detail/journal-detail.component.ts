@@ -24,18 +24,17 @@ export class JournalDetailComponent implements OnInit {
   ngOnInit() {
     const journalId = +this.route.snapshot.params['id'];  // Convert to number
     this.fetchJournal(Number(journalId));
-    this.randomQuote = this.quoteService.getRandomQuote();
+    this.quoteService.getRandomQuote().subscribe((quote: string) => {
+      this.randomQuote = quote;
+    });
   }
 
   fetchJournal(id: number) {
-    const journal = this.journalService.getJournal(id);
-    if (journal) {
+    this.journalService.getJournal(id).subscribe((journal: Journal) => {
       this.journal = journal;
-    } else {
-      // Handle the case where no journal was found
-      console.error('Journal not found!');
-    }
+    });
   }
+
 
 
   onEdit() {
