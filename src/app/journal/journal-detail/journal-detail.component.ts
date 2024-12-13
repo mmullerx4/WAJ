@@ -12,7 +12,7 @@ import { Journal } from '../journal.model';
 })
 export class JournalDetailComponent implements OnInit {
   journal!: Journal;
-  randomQuote: string = '';
+  randomQuote: { text: string, author: string } | undefined;
 
   constructor(
     private router: Router,
@@ -24,9 +24,10 @@ export class JournalDetailComponent implements OnInit {
   ngOnInit() {
     const journalId = +this.route.snapshot.params['id'];  // Convert to number
     this.fetchJournal(Number(journalId));
-    this.quoteService.getRandomQuote().subscribe((quote: string) => {
+    this.quoteService.getRandomQuote().subscribe((quote: { text: string, author: string }) => {
       this.randomQuote = quote;
     });
+
   }
 
   fetchJournal(id: number) {

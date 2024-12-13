@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class QuoteService {
-  private apiUrl = '/api/quotes';  // API endpoint to fetch quotes from backend
+  private apiUrl = 'http://localhost:5000/api/quotes';
+  // API endpoint to fetch quotes from backend
 
   constructor(private http: HttpClient) {}
 

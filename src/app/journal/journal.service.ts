@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Journal } from './journal.model'; // Assuming the Journal interface is in a separate file
+import { Journal } from './journal.model'; 
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class JournalService {
-  private apiUrl = '/api/journal';  // API endpoint for journal entries
+  private apiUrl = 'http://localhost:5000/api/journal';
+  // API endpoint for journal entries
 
   constructor(private http: HttpClient) {}
 

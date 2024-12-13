@@ -1,14 +1,14 @@
 const express = require('express');
-const JournalEntry = require('../models/journalEntry');
+const JournalEntry = require('../models/journalEntry'); // Use correct model file name
 const router = express.Router();
 
 // GET all journal entries
 router.get('/', async (req, res) => {
   try {
-    const entries = await JournalEntry.find();
-    res.json(entries);
+    const journals = await JournalEntry.find(); // Fetch from 'journals' collection
+    res.status(200).json(journals);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ message: 'Error fetching journals', error: err });
   }
 });
 
@@ -24,3 +24,4 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
+

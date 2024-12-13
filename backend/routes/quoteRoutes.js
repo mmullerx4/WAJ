@@ -1,12 +1,11 @@
-// routes/quoteRoutes.js
 const express = require('express');
-const Quote = require('../models/quote');
+const Quote = require('../models/quote'); // Use correct model file name
 const router = express.Router();
 
 // GET all quotes
 router.get('/', async (req, res) => {
   try {
-    const quotes = await Quote.find();
+    const quotes = await Quote.find(); // Fetch from 'quotes' collection
     res.json(quotes);
   } catch (err) {
     res.status(500).json({ error: err.message });

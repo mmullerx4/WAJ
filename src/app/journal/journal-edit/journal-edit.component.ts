@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class JournalEditComponent implements OnInit {
   journal: Journal | undefined; // Ensure the journal is optional to handle invalid cases
-  randomQuote: string = '';
+  randomQuote: { text: string, author: string } | undefined;
   isEditMode: boolean = false;
 
   constructor(
@@ -26,9 +26,10 @@ export class JournalEditComponent implements OnInit {
 
   // note: snapshot provides a static view of the route's info at a specific time when only need to read the route data once.
   ngOnInit() {
-    this.quoteService.getRandomQuote().subscribe((quote: string) => {
+    this.quoteService.getRandomQuote().subscribe((quote: { text: string, author: string }) => {
       this.randomQuote = quote;
     });
+
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.isEditMode = true;

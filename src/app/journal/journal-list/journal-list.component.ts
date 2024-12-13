@@ -12,7 +12,7 @@ import { Journal } from '../journal.model';
 })
 export class JournalListComponent implements OnInit {
   journals: Journal[] = [];  // Assuming you're working with a list of journals
-  randomQuote: string = '';  // Initialize empty random quote string
+  randomQuote: { text: string, author: string } | undefined;  // Initialize empty random quote string
 
   constructor(
     private journalService: JournalService,
@@ -27,9 +27,10 @@ export class JournalListComponent implements OnInit {
     });
 
     // Fetch random quote
-    this.quoteService.getRandomQuote().subscribe((quote: string) => {
+    this.quoteService.getRandomQuote().subscribe((quote: { text: string, author: string }) => {
       this.randomQuote = quote;
     });
+
   }
 
 

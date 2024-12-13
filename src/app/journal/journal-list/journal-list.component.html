@@ -8,7 +8,9 @@
           <h3 class="panel-title">Quote of the Day</h3>
         </div>
         <div class="panel-body">
-          <p>{{ randomQuote }}</p> <!-- Display the random quote -->
+          <p>{{ randomQuote?.text }}</p> <!-- Display the text of the random quote -->
+          <small>- {{ randomQuote?.author }}</small> <!-- Display the author of the random quote -->
+
         </div>
       </div>
     </div>
