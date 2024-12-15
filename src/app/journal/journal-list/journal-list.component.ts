@@ -18,7 +18,7 @@ export class JournalListComponent implements OnInit {
     private journalService: JournalService,
     private router: Router,
     private quoteService: QuoteService  // Inject QuoteService
-  ) {}
+  ) { console.log('JournalListComponent constructor called'); }
 
   ngOnInit(): void {
     // Subscribe to get the journals and assign them to the journals array

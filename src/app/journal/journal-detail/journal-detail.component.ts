@@ -19,7 +19,7 @@ export class JournalDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private journalService: JournalService,
     private quoteService: QuoteService
-  ) {}
+  ) { console.log('JournalDetailComponent constructor called'); }
 
   ngOnInit() {
     console.log(this.route.snapshot.params); // Logs all route params

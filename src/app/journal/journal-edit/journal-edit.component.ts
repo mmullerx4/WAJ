@@ -22,7 +22,7 @@ export class JournalEditComponent implements OnInit {
     private journalService: JournalService,
     public router: Router,
     private quoteService: QuoteService
-  ) {}
+  ) { console.log('JournalEditComponent constructor called'); }
 
   // note: snapshot provides a static view of the route's info at a specific time when only need to read the route data once.
   ngOnInit() {
