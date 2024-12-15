@@ -18,6 +18,7 @@ router.get('/random', async (req, res) => {
     const count = await Quote.countDocuments();
     const random = Math.floor(Math.random() * count);
     const randomQuote = await Quote.findOne().skip(random);
+    console.log('Sending random quote:', randomQuote); // Debugging line
     res.json(randomQuote);
   } catch (err) {
     res.status(500).json({ error: err.message });

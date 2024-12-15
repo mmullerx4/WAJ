@@ -33,7 +33,7 @@ export class JournalEditComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.isEditMode = true;
-      const journalId = +id; // Convert the ID to a number
+      const journalId = id; // Convert the ID to a number
       this.journalService.getJournal(journalId).subscribe((journal: Journal) => {
         this.journal = journal;
       });

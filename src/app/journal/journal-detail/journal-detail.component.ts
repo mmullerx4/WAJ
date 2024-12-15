@@ -22,20 +22,56 @@ export class JournalDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const journalId = +this.route.snapshot.params['id'];  // Convert to number
-    this.fetchJournal(Number(journalId));
+    console.log(this.route.snapshot.params); // Logs all route params
+    const journalId = this.route.snapshot.params['id'];
+    console.log("Journal ID from URL:", journalId); // This should log the actual ID if it's set correctly
+
+    if (!journalId) {
+      console.error('Journal ID is missing from the URL');
+      return;
+    }
+
+    this.fetchJournal(journalId); //error message for this line
     this.quoteService.getRandomQuote().subscribe((quote: { text: string, author: string }) => {
       this.randomQuote = quote;
     });
-
   }
 
-  fetchJournal(id: number) {
-    this.journalService.getJournal(id).subscribe((journal: Journal) => {
-      this.journal = journal;
-    });
-  }
+  // fetchJournal(id: number) {
+  //   if (!id || isNaN(id)) {
+  //     console.error('Invalid journal ID:', id); // error message for this line
+  //     return;
+  //   }
 
+  //   this.journalService.getJournal(id).subscribe(
+  //     (journal: Journal) => {
+  //       console.log('Fetched journal:', journal);
+  //       this.journal = journal;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching journal:', error); // Backend issue log
+  //     }
+  //   );
+  // }
+
+  fetchJournal(id: string) {
+    if (!id || typeof id !== 'string') {
+      console.error('Invalid journal ID:', id); // Add more specific checks here
+      return;
+    }
+
+    console.log('Fetching journal with ID:', id);
+
+    this.journalService.getJournal(id).subscribe(
+      (journal: Journal) => {
+        console.log('Fetched journal:', journal);
+        this.journal = journal;
+      },
+      (error) => {
+        console.error('Error fetching journal:', error); // Backend issue log
+      }
+    );
+  }
 
 
   onEdit() {

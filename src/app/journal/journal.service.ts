@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Journal } from './journal.model'; 
+import { Journal } from './journal.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class JournalService {
   }
 
   // Get a specific journal by ID
-  getJournal(id: number): Observable<Journal> {
+  getJournal(id: string): Observable<Journal> {
     return this.http.get<Journal>(`${this.apiUrl}/${id}`);
   }
 

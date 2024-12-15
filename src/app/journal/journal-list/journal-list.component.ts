@@ -36,5 +36,7 @@ export class JournalListComponent implements OnInit {
 
   onViewDetail(journalId: number): void {
     this.router.navigate(['/journals', journalId]);  // Navigate to the journal's detail page
+    console.log('Navigating to journal with ID:', journalId);
+    console.log("Journal ID from URL:", journalId);
   }
 }
