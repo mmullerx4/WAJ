@@ -1,5 +1,5 @@
 export interface Journal {
-  id?: number;  // Make `id` optional
+  id?: string;  // use string if MongoDB ObjectId
   title: string;
   content: string;
   date: Date;

@@ -28,12 +28,12 @@ export class JournalService {
   }
 
   // Update an existing journal
-  updateJournal(id: number, updatedJournal: Journal): Observable<Journal> {
+  updateJournal(id: string, updatedJournal: Journal): Observable<Journal> {
     return this.http.put<Journal>(`${this.apiUrl}/${id}`, updatedJournal);
   }
 
   // Delete a journal by ID
-  deleteJournal(id: number): Observable<void> {
+  deleteJournal(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

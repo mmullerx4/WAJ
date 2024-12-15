@@ -9,7 +9,7 @@ import { Journal } from '../journal.model';
 })
 export class JournalItemComponent {
   @Input() journal!: Journal; // Input to accept a journal object from the parent
-  @Output() viewDetail = new EventEmitter<number>(); // Event emitter for detail view navigation
+  @Output() viewDetail = new EventEmitter<string>(); // Event emitter for detail view navigation
 
   constructor(private router: Router) {}
 
