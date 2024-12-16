@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Journal } from './journal.model';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -19,8 +20,13 @@ export class JournalService {
 
   // Get a specific journal by ID
   getJournal(id: string): Observable<Journal> {
-    return this.http.get<Journal>(`${this.apiUrl}/${id}`);
+    return this.http.get<Journal>(`${this.apiUrl}/${id}`).pipe(
+      map((journal: any) => {
+        return { ...journal, id: journal._id }; // Add `id` for frontend
+      })
+    );
   }
+
 
   // Add a new journal
   addJournal(newJournal: Journal): Observable<Journal> {

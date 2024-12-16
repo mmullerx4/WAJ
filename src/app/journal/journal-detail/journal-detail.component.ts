@@ -37,23 +37,6 @@ export class JournalDetailComponent implements OnInit {
     });
   }
 
-  // fetchJournal(id: number) {
-  //   if (!id || isNaN(id)) {
-  //     console.error('Invalid journal ID:', id); // error message for this line
-  //     return;
-  //   }
-
-  //   this.journalService.getJournal(id).subscribe(
-  //     (journal: Journal) => {
-  //       console.log('Fetched journal:', journal);
-  //       this.journal = journal;
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching journal:', error); // Backend issue log
-  //     }
-  //   );
-  // }
-
   fetchJournal(id: string) {
     if (!id || typeof id !== 'string') {
       console.error('Invalid journal ID:', id); // Add more specific checks here
@@ -72,7 +55,6 @@ export class JournalDetailComponent implements OnInit {
       }
     );
   }
-
 
   onEdit() {
     // Redirect to the edit route for this journal

@@ -20,7 +20,7 @@
         <div class="panel-heading">
           <div class="media-left">
             <h2 class="panel-title">{{ journal?.title }}</h2>
-            <p class="date">{{ journal?.date | date: 'longDate' }}</p>  <!-- Formatting date -->
+            <p class="date">{{ journal?.date | date:'shortDate' }}</p>  <!-- Formatting date -->
           </div>
           <div class="button-container">
             <button class="btn btn-info" (click)="onEdit()">Edit</button>

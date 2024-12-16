@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET a single journal by ID
-router.get('/journals/:id', async (req, res) => {
+router.get('/journal/:id', async (req, res) => {
   console.log('Fetching journal with ID:', req.params.id);
 
   // Validate ID format
@@ -25,6 +25,7 @@ router.get('/journals/:id', async (req, res) => {
 
   try {
     const journal = await JournalEntry.findById(req.params.id); // Fetch the journal by ID
+    console.log('Journal fetched:', journal);
     if (!journal) {
       return res.status(404).json({ message: 'Journal not found' });
     }
