@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms'; // Required for template-driven fo
 })
 export class JournalEditComponent implements OnInit {
   journal: Journal | undefined; // The journal to edit or create
-  randomQuote: { text: string, author: string } | undefined; // Holds the random quote
+  randomQuote: { quote: string, author: string } | undefined; // Holds the random quote
   isEditMode: boolean = false; // Determines if editing or creating a new journal
 
   constructor(
@@ -26,7 +26,7 @@ export class JournalEditComponent implements OnInit {
 
   ngOnInit(): void {
     // Fetch a random quote
-    this.quoteService.getRandomQuote().subscribe((quote: { text: string; author: string }) => {
+    this.quoteService.getRandomQuote().subscribe((quote: { quote: string; author: string }) => {
       this.randomQuote = quote;
     });
 

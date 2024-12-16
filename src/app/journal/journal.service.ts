@@ -8,7 +8,7 @@ import { map } from 'rxjs';
   providedIn: 'root',
 })
 export class JournalService {
-  private apiUrl = 'http://localhost:5000/api/journal';
+  private apiUrl = 'http://localhost:5000/api/journals';
   // API endpoint for journal entries
 
   constructor(private http: HttpClient) {}

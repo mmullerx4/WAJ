@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET a single journal by ID
-router.get('/journal/:id', async (req, res) => {
+router.get('/journals/:id', async (req, res) => {
   console.log('Fetching journal with ID:', req.params.id);
 
   // Validate ID format

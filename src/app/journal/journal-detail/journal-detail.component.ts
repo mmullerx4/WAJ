@@ -12,7 +12,7 @@ import { Journal } from '../journal.model';
 })
 export class JournalDetailComponent implements OnInit {
   journal!: Journal;
-  randomQuote: { text: string, author: string } | undefined;
+  randomQuote: { quote: string, author: string } | undefined;
 
   constructor(
     private router: Router,
@@ -32,7 +32,7 @@ export class JournalDetailComponent implements OnInit {
     }
 
     this.fetchJournal(journalId); //error message for this line
-    this.quoteService.getRandomQuote().subscribe((quote: { text: string, author: string }) => {
+    this.quoteService.getRandomQuote().subscribe((quote: { quote: string, author: string }) => {
       this.randomQuote = quote;
     });
   }

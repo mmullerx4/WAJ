@@ -22,7 +22,7 @@ export class QuoteService {
   }
 
   // Add a new quote to the backend
-  addQuote(newQuote: { text: string, author: string }): Observable<any> {
+  addQuote(newQuote: { quote: string, author: string }): Observable<any> {
     return this.http.post<any>(this.apiUrl, newQuote);
   }
 }
