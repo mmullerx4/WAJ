@@ -31,7 +31,8 @@ export class JournalDetailComponent implements OnInit {
       return;
     }
 
-    this.fetchJournal(journalId); //error message for this line
+    this.fetchJournal(journalId);
+    console.log(journalId);
     this.quoteService.getRandomQuote().subscribe((quote: { quote: string, author: string }) => {
       this.randomQuote = quote;
     });

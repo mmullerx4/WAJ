@@ -22,7 +22,7 @@ export class JournalService {
   getJournal(id: string): Observable<Journal> {
     return this.http.get<Journal>(`${this.apiUrl}/${id}`).pipe(
       map((journal: any) => {
-        return { ...journal, id: journal._id }; // Add `id` for frontend
+        return { ...journal, id: journal._id };
       })
     );
   }

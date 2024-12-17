@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET a single journal by ID
-router.get('/journals/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   console.log('Fetching journal with ID:', req.params.id);
 
   // Validate ID format
@@ -56,7 +56,7 @@ router.post('/', async (req, res) => {
 });
 
 // PUT (update) an existing journal entry
-router.put('/journals/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     return res.status(400).json({ message: 'Invalid journal ID format' });
   }

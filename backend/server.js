@@ -1,7 +1,6 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require('express'); // is the backend framework on top of node.js
+const mongoose = require('mongoose'); // the package that allows us to work with mongodb in connection with Javascript
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const path = require('path');
 
@@ -22,7 +21,9 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
  })
 );
-app.use(bodyParser.json());
+
+app.use(express.json());
+
 app.use((req, res, next) => {
   console.log(`${req.method} request to ${req.url}`);
   next();
@@ -34,6 +35,16 @@ app.use((req, res, next) => {
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log('Database connection error:', err));
+
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//     .then(() => {
+//       console.log('Connected to database!');
+//         app.listen(3000, () => {
+//           console.log('Server is running on port 3000');
+//       });
+//   })
+
 
 // Routes
 app.use('/api/journals', require('./routes/journalRoutes'));
