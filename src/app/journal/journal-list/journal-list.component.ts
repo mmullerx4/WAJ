@@ -31,12 +31,12 @@ export class JournalListComponent implements OnInit {
       this.randomQuote = quote;
     });
 
+    console.log('This is console test 1');
+
   }
 
-
-  onViewDetail(journalId: number): void {
-    console.log('Navigating to journal with ID:', journalId);
-    this.router.navigate(['/journals', journalId]);  // Navigate to the journal's detail page
-
+  onViewDetail(id: string): void {
+    console.log('onViewDetail triggered with ID:', id);
+    this.router.navigate(['/journals', id]);  // Navigate to the journal's detail page
   }
 }

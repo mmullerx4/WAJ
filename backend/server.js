@@ -36,15 +36,6 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log('Database connection error:', err));
 
-// mongoose
-//   .connect(process.env.MONGO_URI)
-//     .then(() => {
-//       console.log('Connected to database!');
-//         app.listen(3000, () => {
-//           console.log('Server is running on port 3000');
-//       });
-//   })
-
 
 // Routes
 app.use('/api/journals', require('./routes/journalRoutes'));

@@ -22,33 +22,27 @@ export class JournalDetailComponent implements OnInit {
   ) { console.log('JournalDetailComponent constructor called'); }
 
   ngOnInit() {
-    console.log(this.route.snapshot.params); // Logs all route params
-    const journalId = this.route.snapshot.params['id'];
-    console.log("Journal ID from URL:", journalId); // This should log the actual ID if it's set correctly
+    const id = this.route.snapshot.params['id'];
+    console.log("Journal ID from URL:", id);
 
-    if (!journalId) {
+    if (!id) {
       console.error('Journal ID is missing from the URL');
       return;
     }
 
-    this.fetchJournal(journalId);
-    console.log(journalId);
+    this.fetchJournal(id);
+    console.log(id);
     this.quoteService.getRandomQuote().subscribe((quote: { quote: string, author: string }) => {
       this.randomQuote = quote;
     });
+
+    console.log('This is console test 2');
   }
 
   fetchJournal(id: string) {
-    if (!id || typeof id !== 'string') {
-      console.error('Invalid journal ID:', id); // Add more specific checks here
-      return;
-    }
-
-    console.log('Fetching journal with ID:', id);
-
     this.journalService.getJournal(id).subscribe(
       (journal: Journal) => {
-        console.log('Fetched journal:', journal);
+        console.log('Journal data in component:', journal);
         this.journal = journal;
       },
       (error) => {

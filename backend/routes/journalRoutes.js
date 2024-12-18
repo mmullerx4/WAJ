@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
 // GET a single journal by ID
 router.get('/:id', async (req, res) => {
-  console.log('Fetching journal with ID:', req.params.id);
+  console.log('Journal ID received:', req.params.id);
 
   // Validate ID format
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
